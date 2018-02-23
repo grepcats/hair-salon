@@ -22,5 +22,16 @@ namespace HairSalon.Tests
       //assert
       Assert.AreEqual(0, result);
     }
+
+    [TestMethod]
+    public void DeleteAll_RemoveAllStylists_Void()
+    {
+      //arrange, act
+      Stylist.DeleteAll();
+      int result = Stylist.GetAllStylists().Count;
+
+      //assert
+      Assert.AreEqual(0, result);
+    }
   }
 }
