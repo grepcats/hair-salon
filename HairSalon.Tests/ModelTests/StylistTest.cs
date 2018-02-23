@@ -142,14 +142,14 @@ namespace HairSalon.Tests
         public void Find_ReturnAStylist_Stylist()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair", 1);
-            Stylist newStylist2 = new Stylist("Jane", "Fonda", "Short Hair", 2);
+            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            Stylist newStylist2 = new Stylist("Jane", "Fonda", "Short Hair");
             newStylist.Save();
             newStylist2.Save();
             List<Stylist> allStylists = Stylist.GetAllStylists();
 
             //act
-            Stylist result = Stylist.Find(1);
+            Stylist result = Stylist.Find(newStylist.GetId());
 
             //assert
             Assert.AreEqual(newStylist, result);
