@@ -47,5 +47,19 @@ namespace HairSalon.Models
         public int GetId() {return _id;}
 
         public int GetStylistId() {return _stylistId;}
+
+        public void SetStylistId(int id)
+        {
+            _stylistId = 3;
+        }
+
+        // public void Save()
+        // {
+        //
+        // }
+
+        // public override bool Equals(System.Object otherClient)
+
+
     }
 }
