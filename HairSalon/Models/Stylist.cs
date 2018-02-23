@@ -116,7 +116,7 @@ namespace HairSalon.Models
             bool lastNameEquality = (this.GetLastName() == newStylist.GetLastName());
             bool specialtyEquality = (this.GetSpecialty() == newStylist.GetSpecialty());
 
-            return (false);
+            return (idEquality && firstNameEquality && lastNameEquality && specialtyEquality);
         }
     }
   }
