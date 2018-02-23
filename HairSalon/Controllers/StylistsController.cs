@@ -9,7 +9,8 @@ namespace HairSalon.Controllers
         [Route("/")]
         public ActionResult Index()
         {
-            return View("Index");
+            List<Stylist> testList = new List<Stylist>{};
+            return View("Index", testList);
         }
     }
 }
