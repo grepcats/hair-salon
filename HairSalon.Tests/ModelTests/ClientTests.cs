@@ -60,5 +60,34 @@ namespace HairSalon.Tests
             //assert
             Assert.AreEqual(result, controlId);
         }
+
+        [TestMethod]
+        public void GetAllClients_DBEmptyAtFirst_0()
+        {
+            //arrange, act
+            int result = Client.GetAllClients().Count;
+
+            //assert
+            Assert.AreEqual(0, result);
+        }
+
+        // [TestMethod]
+        // public void Save_SavesToDatabase_ClientList()
+        // {
+        //     //arrange
+        //     Client newClient = new Client("Tom", "Tomson", "503-555-1234");
+        //
+        //     //act
+        //     newClient.Save();
+        //     List<Client> result = Stylist.GetAllClients();
+        //     Console.WriteLine(result.Count);
+        //     List<Stylist> testList = new List<Stylist>{newStylist};
+        //     Console.WriteLine(testList.Count);
+        //
+        //     //assert
+        //     CollectionAssert.AreEqual(testList, result);
+        // }
+
+        //test for making sure returning clients just for a stylist
     }
 }

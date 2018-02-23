@@ -119,5 +119,7 @@ namespace HairSalon.Models
             return (idEquality && firstNameEquality && lastNameEquality && specialtyEquality);
         }
     }
+
+    // public List<Client> GetClients for this stylist
   }
 }

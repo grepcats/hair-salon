@@ -53,12 +53,20 @@ namespace HairSalon.Models
             _stylistId = id;
         }
 
-        // public void Save()
-        // {
-        //
-        // }
+        public static List<Client> GetAllClients()
+        {
+            Client newClient = new Client("Tom", "Tomson", "503-555-1234");
+            List<Client> allClients = new List<Client>{newClient};
+            return allClients;
+        }
+
+        public void Save()
+        {
+
+        }
 
         // public override bool Equals(System.Object otherClient)
+
 
 
     }
