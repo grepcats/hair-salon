@@ -50,7 +50,7 @@ namespace HairSalon.Models
 
         public void SetStylistId(int id)
         {
-            _stylistId = 3;
+            _stylistId = id;
         }
 
         // public void Save()
