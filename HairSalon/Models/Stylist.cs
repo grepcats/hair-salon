@@ -192,28 +192,28 @@ namespace HairSalon.Models
 
     public void Delete()
     {
-        // MySqlConnection conn = DB.Connection();
-        // conn.Open();
-        // var cmd = conn.CreateCommand() as MySqlCommand;
-        // cmd.CommandText = @"DELETE FROM `stylists` WHERE `id` = @thisId;";
-        //
-        // var cmdItems = conn.CreateCommand() as MySqlCommand;
-        // cmdClients.CommandText = @"DELETE FROM `clients` WHERE `stylist_id` = @thisId;";
-        //
-        // MySqlParameter thisId = new MySqlParameter();
-        // thisId.ParameterName = "@thisId";
-        // thisId.Value = _id;
-        // cmd.Parameters.Add(thisId);
-        // cmdItems.Parameters.Add(thisId);
-        //
-        // cmdClients.ExecuteNonQuery();
-        // cmd.ExecuteNonQuery();
-        //
-        // conn.Close();
-        // if (conn != null)
-        // {
-        //     conn.Dispose();
-        // }
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"DELETE FROM `stylists` WHERE `id` = @thisId;";
+
+        var cmdClients = conn.CreateCommand() as MySqlCommand;
+        cmdClients.CommandText = @"DELETE FROM `clients` WHERE `stylist_id` = @thisId;";
+
+        MySqlParameter thisId = new MySqlParameter();
+        thisId.ParameterName = "@thisId";
+        thisId.Value = _id;
+        cmd.Parameters.Add(thisId);
+        cmdClients.Parameters.Add(thisId);
+
+        cmdClients.ExecuteNonQuery();
+        cmd.ExecuteNonQuery();
+
+        conn.Close();
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
     }
   }
 }

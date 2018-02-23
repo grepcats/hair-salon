@@ -11,6 +11,7 @@ namespace HairSalon.Tests
         public void Dispose()
         {
             Stylist.DeleteAll();
+            Client.DeleteAll();
         }
 
         public StylistTests()
@@ -152,17 +153,21 @@ namespace HairSalon.Tests
         public void Delete_DeleteStylistandClientsfromDB_void()
         {
             //arrange
-            Stylist newStylist1 = new Stylist("Carol", "Smith", "Curly Hair", 1);
+            Stylist newStylist1 = new Stylist("Carol", "Smith", "Curly Hair");
             newStylist1.Save();
-            Client newClient1 = new Client("Tom", "Tomson", "503-555-1234", 1, 1);
-            Client newClient2 = new Client("Bill", "Billson", "503-555-1234", 2, 1);
+            Client newClient1 = new Client("Tom", "Tomson", "503-555-1234");
+            Client newClient2 = new Client("Bill", "Billson", "503-555-1234");
+            newClient1.SetStylistId(newStylist1.GetId());
+            newClient2.SetStylistId(newStylist1.GetId());
             newClient1.Save();
             newClient2.Save();
 
-            Stylist newStylist2 = new Stylist("Jane", "Fonda", "Short Hair", 2);
+            Stylist newStylist2 = new Stylist("Jane", "Fonda", "Short Hair");
             newStylist2.Save();
-            Client newClient3 = new Client("Tom", "Tomson", "503-555-1234", 3, 2);
-            Client newClient4 = new Client("Bill", "Billson", "503-555-1234", 4, 2);
+            Client newClient3 = new Client("Tom", "Tomson", "503-555-1234");
+            Client newClient4 = new Client("Bill", "Billson", "503-555-1234");
+            newClient3.SetStylistId(newStylist2.GetId());
+            newClient4.SetStylistId(newStylist2.GetId());
             newClient3.Save();
             newClient4.Save();
 
