@@ -2,4 +2,10 @@
   Layout = "_Layout";
 }
 
-<h1>Clients for @Model.
+<h1>Clients for @Model["stylist"].GetFirstName()</h1>
+<a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add new client</a>
+<a href="/">Return Home</a>
+@foreach(var client in Model["clients"])
+{
+    <p>@client.GetFirstName() @client.GetLastName() | @client.GetPhoneNumber()</p>
+}

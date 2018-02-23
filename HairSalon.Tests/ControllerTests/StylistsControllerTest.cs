@@ -57,7 +57,7 @@ namespace HairSalon.Tests
             StylistsController controller = new StylistsController();
 
             //act
-            IActionResult detailsView = controller.Details();
+            IActionResult detailsView = controller.Details(1);
             ViewResult result = detailsView as ViewResult;
 
             //assert
@@ -68,13 +68,13 @@ namespace HairSalon.Tests
         public void Details_HasCorrectModelType_True()
         {
             //arrange
-            ViewResult detailsView = new StylistsController().Details() as ViewResult;
+            ViewResult detailsView = new StylistsController().Details(1) as ViewResult;
 
             //act
             var result = detailsView.ViewData.Model;
 
             //assert
-            Assert.IsInstanceOfType(result, typeof(List<Client>));
+            Assert.IsInstanceOfType(result, typeof(Dictionary<string, object>));
         }
     }
 }

@@ -176,7 +176,6 @@ namespace HairSalon.Models
         var rdr = cmd.ExecuteReader() as MySqlDataReader;
         while (rdr.Read())
         {
-            Console.WriteLine("Hello");
             stylistFirstName = rdr.GetString(0);
             stylistLastName = rdr.GetString(1);
             stylistId = rdr.GetInt32(2);
@@ -184,7 +183,6 @@ namespace HairSalon.Models
         }
 
         Stylist foundStylist = new Stylist(stylistFirstName, stylistLastName, stylistSpecialty, stylistId);
-        Console.WriteLine(foundStylist.GetFirstName());
 
         conn.Close();
         if (conn != null)
