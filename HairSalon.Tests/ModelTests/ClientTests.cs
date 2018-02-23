@@ -96,6 +96,22 @@ namespace HairSalon.Tests
             CollectionAssert.AreEqual(testList, result);
         }
 
+        [TestMethod]
+        public void Save_AssignsIdToObject_Id()
+        {
+            //arrange
+            Client newClient = new Client("Tom", "Tomson", "503-555-1234");
+
+            //act
+            newClient.Save();
+            Client savedClient = Client.GetAllClients()[0];
+            int result = savedClient.GetId();
+            int testId = newClient.GetId();
+
+            //assign
+            Assert.AreEqual(result, testId);
+        }
+
         //test for making sure returning clients just for a stylist
     }
 }
