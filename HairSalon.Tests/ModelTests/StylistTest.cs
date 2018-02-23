@@ -124,15 +124,8 @@ namespace HairSalon.Tests
             otherClient.Save();
             List<Client> controlList = new List<Client>{newClient, otherClient};
 
-
-            Console.WriteLine("stylist id is: " + newStylist.GetId());
-            Console.WriteLine("newClient stylistid is: " + newClient.GetStylistId());
-            Console.WriteLine("otherClient stylistid is: " + otherClient.GetStylistId());
-
             //act
             List<Client> result = newStylist.GetClients();
-
-            Console.WriteLine(result.Count + ", " + controlList.Count);
 
             //assert
             CollectionAssert.AreEqual(result, controlList);
@@ -153,6 +146,34 @@ namespace HairSalon.Tests
 
             //assert
             Assert.AreEqual(newStylist, result);
+        }
+
+        [TestMethod]
+        public void Delete_DeleteStylistandClientsfromDB_void()
+        {
+            //arrange
+            Stylist newStylist1 = new Stylist("Carol", "Smith", "Curly Hair", 1);
+            newStylist1.Save();
+            Client newClient1 = new Client("Tom", "Tomson", "503-555-1234", 1, 1);
+            Client newClient2 = new Client("Bill", "Billson", "503-555-1234", 2, 1);
+            newClient1.Save();
+            newClient2.Save();
+
+            Stylist newStylist2 = new Stylist("Jane", "Fonda", "Short Hair", 2);
+            newStylist2.Save();
+            Client newClient3 = new Client("Tom", "Tomson", "503-555-1234", 3, 2);
+            Client newClient4 = new Client("Bill", "Billson", "503-555-1234", 4, 2);
+            newClient3.Save();
+            newClient4.Save();
+
+            int numExistingClientsControl = 2;
+
+            //act
+            newStylist1.Delete();
+            int result = Client.GetAllClients().Count;
+
+            //assert
+            Assert.AreEqual(numExistingClientsControl, result);
         }
     }
 }
