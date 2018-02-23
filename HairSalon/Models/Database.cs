@@ -6,7 +6,7 @@ namespace HairSalon.Models
 {
   public class DB
   {
-    public MySqlConnection Connection()
+    public static MySqlConnection Connection()
     {
       MySqlConnection conn = new MySqlConnection(DBConfiguration.ConnectionString);
       return conn;
