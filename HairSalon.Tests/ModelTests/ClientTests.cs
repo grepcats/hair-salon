@@ -18,5 +18,31 @@ namespace HairSalon.Tests
         {
             DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=kayla_ondracek_test";
         }
+
+        [TestMethod]
+        public void Getters_GettersReturnAppropriately_StringsAndInts()
+        {
+            //arrange
+            Client newClient = new Client("Tom", "Tomson", "503-555-1234", 1, 1);
+            string controlFirst = "Tom";
+            string controlLast = "Tomson";
+            string controlPhone = "503-555-1234";
+            int controlId = 1;
+            int controlStylistId = 1;
+
+            //act
+            string resultFirst = newClient.GetFirstName();
+            string resultLast = newClient.GetLastName();
+            string resultPhone = newClient.GetPhoneNumber();
+            int resultId = newClient.GetId();
+            int resultStylistId = newClient.GetStylistId();
+
+            //assert
+            Assert.AreEqual(controlFirst, resultFirst);
+            Assert.AreEqual(controlLast, resultLast);
+            Assert.AreEqual(controlPhone, resultPhone);
+            Assert.AreEqual(controlId, resultId);
+            Assert.AreEqual(controlStylistId, resultStylistId);
+        }
     }
 }

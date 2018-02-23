@@ -38,9 +38,14 @@ namespace HairSalon.Models
             }
         }
 
-        // public void GetFirstName()
-        // {
-        //     return "Hello";
-        // }
+        public string GetFirstName() {return _firstName;}
+
+        public string GetLastName() {return _lastName;}
+
+        public string GetPhoneNumber() {return _phoneNumber;}
+
+        public int GetId() {return _id;}
+
+        public int GetStylistId() {return _stylistId;}
     }
 }
