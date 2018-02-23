@@ -50,8 +50,8 @@ namespace HairSalon.Tests
         {
             //arrange
             Client newClient = new Client("Tom", "Tomson", "503-555-1234", 1);
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair", 2);
-            int controlId = 2;
+            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair", 5);
+            int controlId = 5;
 
             //act
             newClient.SetStylistId(newStylist.GetId());
@@ -91,7 +91,7 @@ namespace HairSalon.Tests
             newClient.Save();
             List<Client> result = Client.GetAllClients();
             List<Client> testList = new List<Client>{newClient};
-
+            string testName = result[0].GetFirstName();
             //assert
             CollectionAssert.AreEqual(testList, result);
         }

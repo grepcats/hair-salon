@@ -115,15 +115,24 @@ namespace HairSalon.Tests
         {
             //arrange
             Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
-            Client newClient = new Client("Tom", "Tomson", "503-555-1234");
-            Client otherClient = new Client("Joe", "Joeson", "503-555-4567", 2, 5);
-            List<Client> controlList = new List<Client>{newClient};
             newStylist.Save();
-            newClient.Save();
+            Client newClient = new Client("Tom", "Tomson", "503-555-1234");
             newClient.SetStylistId(newStylist.GetId());
+            newClient.Save();
+            Client otherClient = new Client("Joe", "Joeson", "503-555-4567", 3, 4);
+            otherClient.SetStylistId(newStylist.GetId());
+            otherClient.Save();
+            List<Client> controlList = new List<Client>{newClient, otherClient};
+
+
+            Console.WriteLine("stylist id is: " + newStylist.GetId());
+            Console.WriteLine("newClient stylistid is: " + newClient.GetStylistId());
+            Console.WriteLine("otherClient stylistid is: " + otherClient.GetStylistId());
 
             //act
             List<Client> result = newStylist.GetClients();
+
+            Console.WriteLine(result.Count + ", " + controlList.Count);
 
             //assert
             CollectionAssert.AreEqual(result, controlList);
