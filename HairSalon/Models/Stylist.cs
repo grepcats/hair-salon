@@ -149,7 +149,6 @@ namespace HairSalon.Models
         {
           conn.Dispose();
         }
-        Console.WriteLine("there are " + allMyClients.Count + " clients");
         return allMyClients;
     }
 
@@ -165,9 +164,7 @@ namespace HairSalon.Models
         thisId.ParameterName = "@thisId";
         thisId.Value = id;
         cmd.Parameters.Add(thisId);
-
-        Console.WriteLine(id);
-
+        
         string stylistFirstName = "";
         string stylistLastName = "";
         int stylistId = 0;
