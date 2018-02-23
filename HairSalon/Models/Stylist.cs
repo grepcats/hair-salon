@@ -19,6 +19,26 @@ namespace HairSalon.Models
       _id = Id;
     }
 
+    public string GetFirstName()
+    {
+        return "Hello";
+    }
+
+    // public string GetLastName()
+    // {
+    //     return _lastName;
+    // }
+    //
+    // public int GetId()
+    // {
+    //     return _id;
+    // }
+    //
+    // public string GetSpecialty()
+    // {
+    //     return _specialty;
+    // }
+
     public static List<Stylist> GetAllStylists()
     {
       List<Stylist> allStylists = new List<Stylist> {};
@@ -46,7 +66,35 @@ namespace HairSalon.Models
 
     public void Save()
     {
-        
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"INSERT INTO `stylists` (`first_name`, `last_name`, `specialty`) VALUES (@FirstName, @LastName, @Specialty);";
+
+        MySqlParameter firstName = new MySqlParameter();
+        firstName.ParameterName = "@FirstName";
+        firstName.Value = this._firstName;
+
+        MySqlParameter lastName = new MySqlParameter();
+        lastName.ParameterName = "@LastName";
+        lastName.Value = this._lastName;
+
+        MySqlParameter specialty = new MySqlParameter();
+        specialty.ParameterName = "@Specialty";
+        specialty.Value = this._specialty;
+
+        cmd.Parameters.Add(firstName);
+        cmd.Parameters.Add(lastName);
+        cmd.Parameters.Add(specialty);
+
+        cmd.ExecuteNonQuery();
+        _id = (int) cmd.LastInsertedId;
+
+        conn.Close();
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
     }
 
     public static void DeleteAll()
@@ -65,5 +113,18 @@ namespace HairSalon.Models
             conn.Dispose();
         }
     }
+
+    // public override bool Equals(System.Object otherStylist)
+    // {
+    //     if (!(otherStylist) is Stylist)
+    //     {
+    //         return false;
+    //     }
+    //     else
+    //     {
+    //         Stylist newStylist = (Stylist) otherStylist;
+    //         bool idEquality = (this.G)
+    //     }
+    // }
   }
 }
