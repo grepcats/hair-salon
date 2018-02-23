@@ -152,6 +152,5 @@ namespace HairSalon.Models
         Console.WriteLine("there are " + allMyClients.Count + " clients");
         return allMyClients;
     }
-    // public List<Client> GetClients for this stylist
   }
 }

@@ -6,5 +6,5 @@
 <a href="/stylists/new">Add new stylist</a>
 @foreach(var stylist in Model)
 {
-    <h4>@stylist.GetFirstName() @stylist.GetLastName()</h4>
+    <h4><a href="/stylists/details/@stylist.GetId()">@stylist.GetFirstName() @stylist.GetLastName()</a></h4>
 }
