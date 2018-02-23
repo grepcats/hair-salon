@@ -102,17 +102,22 @@ namespace HairSalon.Models
         }
     }
 
-    // public override bool Equals(System.Object otherStylist)
-    // {
-    //     if (!(otherStylist) is Stylist)
-    //     {
-    //         return false;
-    //     }
-    //     else
-    //     {
-    //         Stylist newStylist = (Stylist) otherStylist;
-    //         bool idEquality = (this.G)
-    //     }
-    // }
+    public override bool Equals(System.Object otherStylist)
+    {
+        if (!(otherStylist is Stylist))
+        {
+            return false;
+        }
+        else
+        {
+            Stylist newStylist = (Stylist) otherStylist;
+            bool idEquality = (this.GetId() == newStylist.GetId());
+            bool firstNameEquality = (this.GetFirstName() == newStylist.GetFirstName());
+            bool lastNameEquality = (this.GetLastName() == newStylist.GetLastName());
+            bool specialtyEquality = (this.GetSpecialty() == newStylist.GetSpecialty());
+
+            return (false);
+        }
+    }
   }
 }

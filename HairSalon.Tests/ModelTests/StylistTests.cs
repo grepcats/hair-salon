@@ -66,6 +66,17 @@ namespace HairSalon.Tests
             Assert.AreEqual(controlSpecialty, resultSpecialty);
         }
 
+        [TestMethod]
+        public void Equals_ReturnsTrueIfFirstNameSame_Stylist()
+        {
+            //arrange, act
+            Stylist firstStylist = new Stylist("Carol", "Smith", "Curly Hair", 1);
+            Stylist secondStylist = new Stylist("Carol", "Smith", "Curly Hair", 1);
+
+            //assert
+            Assert.AreEqual(firstStylist, secondStylist);
+        }
+
         // [TestMethod]
         // public void Save_SavesToDatabase_StylistList()
         // {
