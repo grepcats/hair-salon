@@ -49,12 +49,15 @@ namespace HairSalon.Tests
             //arrange
             Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair", 1);
             string controlFirst = "Carol";
+            string controlLast = "Smith";
 
             //act
             string resultFirst = newStylist.GetFirstName();
+            string resultLast = newStylist.GetLastName();
 
             //assert
             Assert.AreEqual(controlFirst, resultFirst);
+            Assert.AreEqual(controlLast, resultLast);
         }
 
         // [TestMethod]

@@ -24,10 +24,10 @@ namespace HairSalon.Models
         return _firstName;
     }
 
-    // public string GetLastName()
-    // {
-    //     return _lastName;
-    // }
+    public string GetLastName()
+    {
+        return "cat";
+    }
     //
     // public int GetId()
     // {
