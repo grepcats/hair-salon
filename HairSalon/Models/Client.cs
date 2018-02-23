@@ -63,10 +63,10 @@ namespace HairSalon.Models
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             while(rdr.Read())
             {
-              string clientFirstName = rdr.GetString(0);
-              string clientLastName = rdr.GetString(1);
-              string clientPhone = rdr.GetString(2);
-              int clientId = rdr.GetInt32(3);
+              string clientFirstName = rdr.GetString(1);
+              string clientLastName = rdr.GetString(2);
+              string clientPhone = rdr.GetString(3);
+              int clientId = rdr.GetInt32(0);
               int clientStylistId = rdr.GetInt32(4);
               Client newClient = new Client(clientFirstName, clientLastName, clientPhone, clientId, clientStylistId);
               allClients.Add(newClient);
@@ -81,7 +81,35 @@ namespace HairSalon.Models
 
         public void Save()
         {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"INSERT INTO `clients` (`first_name`, `last_name`, `phone_number`) VALUES (@FirstName, @LastName, @PhoneNumber);";
 
+            MySqlParameter firstName = new MySqlParameter();
+            firstName.ParameterName = "@FirstName";
+            firstName.Value = this._firstName;
+
+            MySqlParameter lastName = new MySqlParameter();
+            lastName.ParameterName = "@LastName";
+            lastName.Value = this._lastName;
+
+            MySqlParameter phoneNumber = new MySqlParameter();
+            phoneNumber.ParameterName = "@PhoneNumber";
+            phoneNumber.Value = this._phoneNumber;
+
+            cmd.Parameters.Add(firstName);
+            cmd.Parameters.Add(lastName);
+            cmd.Parameters.Add(phoneNumber);
+
+            cmd.ExecuteNonQuery();
+            _id = (int) cmd.LastInsertedId;
+
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
         }
 
         public override bool Equals(System.Object otherClient)
