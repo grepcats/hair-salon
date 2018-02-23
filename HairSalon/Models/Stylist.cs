@@ -28,11 +28,11 @@ namespace HairSalon.Models
     {
         return _lastName;
     }
-    //
-    // public int GetId()
-    // {
-    //     return _id;
-    // }
+
+    public int GetId()
+    {
+        return 5;
+    }
     //
     // public string GetSpecialty()
     // {
