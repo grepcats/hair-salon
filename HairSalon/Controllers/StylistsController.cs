@@ -32,6 +32,8 @@ namespace HairSalon.Controllers
         {
             List<Client> clients = new List<Client>{};
             return View("Details", clients);
+            //add find method to stylists Model
+            //this should return model dictionary
         }
     }
 }

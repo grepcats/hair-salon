@@ -152,5 +152,11 @@ namespace HairSalon.Models
         Console.WriteLine("there are " + allMyClients.Count + " clients");
         return allMyClients;
     }
+
+    public static Stylist Find(int id)
+    {
+        Stylist newStylist = new Stylist("carol", "smith", "toots");
+        return newStylist;
+    }
   }
 }
