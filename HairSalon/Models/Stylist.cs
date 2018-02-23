@@ -120,6 +120,12 @@ namespace HairSalon.Models
         }
     }
 
+    public List<Client> GetClients()
+    {
+        Client newClient = new Client("Tom", "Tomson", "503-555-1234");
+        List<Client> clients = new List<Client>{newClient};
+        return clients;
+    }
     // public List<Client> GetClients for this stylist
   }
 }
