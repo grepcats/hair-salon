@@ -33,11 +33,11 @@ namespace HairSalon.Models
     {
         return _id;
     }
-    //
-    // public string GetSpecialty()
-    // {
-    //     return _specialty;
-    // }
+
+    public string GetSpecialty()
+    {
+        return "hello";
+    }
 
     public static List<Stylist> GetAllStylists()
     {
