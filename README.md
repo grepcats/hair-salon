@@ -6,7 +6,7 @@ Output: list of stylists from stylist table: List<Stylist>. ex Carol Smith, Jane
 GetAllStylists method should return a list of stylists from the database.
 
 Program should be able to create new stylists when they're hired
-Input: Form with relevant fields for stylist Input: Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair")
+Input: Form with relevant fields for stylist Input: Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair"). newStylist.Save();
 Output: Stylist is added to the system. GetAllStylists().Count
 Adding a new stylist to the system should increase the count number in a predictable way.
 
