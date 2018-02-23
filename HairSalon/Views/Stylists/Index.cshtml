@@ -3,3 +3,8 @@
 }
 
 <h1>Stylists</h1>
+<a href="/stylists/new">Add new stylist</a>
+@foreach(var stylist in Model)
+{
+    <h4>@stylist.GetFirstName() @stylist.GetLastName()</h4>
+}

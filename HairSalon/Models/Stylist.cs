@@ -136,7 +136,6 @@ namespace HairSalon.Models
         var rdr = cmd.ExecuteReader() as MySqlDataReader;
         while(rdr.Read())
         {
-            Console.WriteLine("HELLOOOOOO");
             string clientFirstName = rdr.GetString(1);
             string clientLastName = rdr.GetString(2);
             string clientPhone = rdr.GetString(3);
