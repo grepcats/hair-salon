@@ -31,7 +31,7 @@ namespace HairSalon.Models
 
     public int GetId()
     {
-        return 5;
+        return _id;
     }
     //
     // public string GetSpecialty()
