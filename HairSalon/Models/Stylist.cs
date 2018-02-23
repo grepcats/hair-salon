@@ -19,25 +19,13 @@ namespace HairSalon.Models
       _id = Id;
     }
 
-    public string GetFirstName()
-    {
-        return _firstName;
-    }
+    public string GetFirstName() {return _firstName;}
 
-    public string GetLastName()
-    {
-        return _lastName;
-    }
+    public string GetLastName() {return _lastName;}
 
-    public int GetId()
-    {
-        return _id;
-    }
+    public int GetId() {return _id;}
 
-    public string GetSpecialty()
-    {
-        return "hello";
-    }
+    public string GetSpecialty() {return _specialty;}
 
     public static List<Stylist> GetAllStylists()
     {
