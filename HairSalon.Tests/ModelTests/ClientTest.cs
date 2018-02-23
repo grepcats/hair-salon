@@ -112,6 +112,18 @@ namespace HairSalon.Tests
             Assert.AreEqual(result, testId);
         }
 
-        //test for making sure returning clients just for a stylist
+        [TestMethod]
+        public void Find_FindAClient_Client()
+        {
+            //arrange
+            Client controlClient = new Client("Tom", "Tomson", "503-555-1234");
+            controlClient.Save();
+
+            //act
+            Client foundClient = Client.Find(controlClient.GetId());
+
+            //Assert
+            Assert.AreEqual(foundClient, controlClient);
+        }
     }
 }

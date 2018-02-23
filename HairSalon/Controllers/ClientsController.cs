@@ -13,5 +13,11 @@ namespace HairSalon.Controllers
          Stylist foundStylist = Stylist.Find(stylistId);
          return View(foundStylist);
         }
+
+        // [HttpGet("/clients/delete/{id}")]
+        // public ActionResult DeleteClient(int id)
+        // {
+        //
+        // }
     }
 }

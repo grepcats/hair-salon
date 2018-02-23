@@ -2,10 +2,28 @@
   Layout = "_Layout";
 }
 
-<h1>Clients for @Model["stylist"].GetFirstName()</h1>
-<a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add new client</a>
+<h1>Details for @Model["stylist"].GetFirstName()</h1>
 <a href="/">Return Home</a>
-@foreach(var client in Model["clients"])
-{
-    <p>@client.GetFirstName() @client.GetLastName() | @client.GetPhoneNumber()</p>
-}
+<p>@Model["stylist"].GetFirstName() @Model["stylist"].GetLastName()</p>
+<p>Specialty: @Model["stylist"].GetSpecialty()</p>
+
+<h2>Clients</h2>
+<a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add new client</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Delete</th>
+    </thead>
+    <tbody>
+        @foreach(var client in Model["clients"])
+        {
+            <tr>
+                <td>@client.GetFirstName() @client.GetLastName()</td>
+                <td>@client.GetPhoneNumber()</td>
+                <td><a href="/clients/delete/client.GetId()"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -27,7 +27,14 @@ Given a stylist id or as a stylist method, the count of Clients returned from th
 
 ---other features
 Program should allow deletion of a single stylist (with the deletion of their clients)
+Input: Delete(); on Carol
+Output: Delete Carol and all of her Clients.
+
 Program should allow deletion of a single client
+Input: Delete(); on Tom
+Output: Delete Tom from database. Stylist should be unaffected.
+
+
 Program should allow updates to a stylist
 Program should allow updates to a client
 Program should allow view of all clients with their respective stylist name
