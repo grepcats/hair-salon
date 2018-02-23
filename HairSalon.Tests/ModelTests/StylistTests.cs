@@ -89,21 +89,25 @@ namespace HairSalon.Tests
             Console.WriteLine(result.Count);
             List<Stylist> testList = new List<Stylist>{newStylist};
             Console.WriteLine(testList.Count);
-        
+
             //assert
             CollectionAssert.AreEqual(testList, result);
         }
 
-        // [TestMethod]
-        // public void GetId_GetsTheId_Id()
-        // {
-        //
-        // }
-        //
-        // [TestMethod]
-        // public void Save_AssignsIdToObject_Id()
-        // {
-        //
-        // }
+        [TestMethod]
+        public void Save_AssignsIdToObject_Id()
+        {
+            //arrange
+            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+
+            //act
+            newStylist.Save();
+            Stylist savedStylist = Stylist.GetAllStylists()[0];
+            int result = savedStylist.GetId();
+            int testId = newStylist.GetId();
+
+            //assign
+            Assert.AreEqual(result, testId);
+        }
     }
 }
