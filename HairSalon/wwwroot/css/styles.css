@@ -1,3 +1,55 @@
-h1 {
-    color:blue;
+.jumbotron {
+    color: #5C5D8D;
+    font-weight: bold;
+    text-align: center;
+    background-color: #A8C69F;
 }
+
+h1 {
+    color: #5C5D8D;
+}
+
+h2 {
+    color: #5C5D8D;
+    font-weight: bold;
+    font-size: 3em;
+    text-align:center;
+}
+
+h3 {
+    color: #5C5D8D;
+    text-align:center;
+}
+
+a {
+    color: #654F6F;
+}
+
+.add {
+    color: #654F6F;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.nav {
+    color: #654F6F;
+    font-size: 1.25em;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+a:hover {
+    color: #5C5D8D;
+    text-decoration: none;
+
+}
+
+/*
+Blue; 5C5D8D
+Purple: 654F6F
+GrayBrown: 99A1A6
+LaurelGreen: A8C69F
+*/

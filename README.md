@@ -35,21 +35,7 @@ Input: Delete(); on Tom
 Output: Delete Tom from database. Stylist should be unaffected.
 
 
-Program should allow updates to a stylist
-Program should allow updates to a client
-Program should allow view of all clients with their respective stylist name
-Program should allow deletion of all stylists
-Program should allow deletion of all clients for a stylist
-Program should allow deletion of all clients for all stylists
-Program should allow search for stylists by name
-Program should allow search for stylists by specialty
-Program should allow search for clients by name
-Program should allow employee to update the stylist for a client
-Program should allow employees to record additional details about a client
-Program should allow appointment scheduling for a client
-Program should allow appointment scheduling for stylists
-Program should check and make sure appointments don't conflict
-Program should track how much a stylist has been paid for appointments.
+
 
 
 

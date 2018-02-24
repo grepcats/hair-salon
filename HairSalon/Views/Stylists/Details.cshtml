@@ -2,13 +2,14 @@
   Layout = "_Layout";
 }
 
-<h1>Details for @Model["stylist"].GetFirstName()</h1>
-<a href="/">Return Home</a>
-<p>@Model["stylist"].GetFirstName() @Model["stylist"].GetLastName()</p>
-<p>Specialty: @Model["stylist"].GetSpecialty()</p>
 
-<h2>Clients</h2>
-<a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add new client</a>
+<h2>Details for @Model["stylist"].GetFirstName() @Model["stylist"].GetLastName()</h2>
+
+<h3>Specialty: @Model["stylist"].GetSpecialty()</h3>
+
+<div class="add">
+    <a href='/stylists/@Model["stylist"].GetId()/clients/new'><span class="glyphicon glyphicon-plus"></span>Add new client</a>
+</div>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -27,3 +28,4 @@
         }
     </tbody>
 </table>
+<p class="nav"><a href="/">Return Home</a></p>
