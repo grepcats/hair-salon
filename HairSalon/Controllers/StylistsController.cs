@@ -27,7 +27,7 @@ namespace HairSalon.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet("/stylists/details/{id}")]
+        [HttpGet("/stylists/{id}")]
         public ActionResult Details(int id)
         {
             Stylist foundStylist = Stylist.Find(id);
@@ -48,7 +48,7 @@ namespace HairSalon.Controllers
             return RedirectToAction("Details");
         }
 
-        [HttpGet("/stylists/delete/{id}")]
+        [HttpGet("/stylists/{id}/delete")]
         public ActionResult DeleteStylist(int id)
         {
             Stylist foundStylist = Stylist.Find(id);
