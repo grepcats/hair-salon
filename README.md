@@ -1,45 +1,104 @@
+
+# Hair Salon Manager
+
+#### _An app to track a hair salon's stylists and their clients. 2/23/2018_
+
 ## Specs
 
-Program should show a list of stylists at the hair salon
-Input: action to see stylists: GetAllStylists();
-Output: list of stylists from stylist table: List<Stylist>. ex Carol Smith, Jane Doe, Bobby Fischer
-GetAllStylists method should return a list of stylists from the database.
+* Program should show a list of stylists at the hair salon
+    * Input: action to see stylists: GetAllStylists();
+    * Output: list of stylists from stylist table: List<Stylist>. ex Carol Smith, Jane Doe, Bobby Fischer
+    * GetAllStylists method should return a list of stylists from the database.
 
-Program should be able to create new stylists when they're hired
-Input: Form with relevant fields for stylist Input: Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair"). newStylist.Save();
-Output: Stylist is added to the system. Compare list of Stylist objects with list of GetAllStylists.
-Adding a new stylist to the system should add stylists to db in a predictable way.
+* Program should be able to create new stylists when they're hired
+    * Input: Form with relevant fields for stylist Input: Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair"). newStylist.Save();
+    * Output: Stylist is added to the system. Compare list of Stylist objects with list of GetAllStylists.
+    * Adding a new stylist to the system should add stylists to db in a predictable way.
 
-Program should show stylist details
-Input: action to request stylist details. GetFirstName(), GetLastName(), GetSpecialty()
-Output: details for a particular stylist. Name: Carol Smith. Specialty: Curly Hair.
-Each method should return the value of a particular field for the specified stylist.
+* Program should show stylist details
+    * Input: action to request stylist details. GetFirstName(), GetLastName(), GetSpecialty()
+    * Output: details for a particular stylist. Name: Carol Smith. Specialty: Curly Hair.
+    * Each method should return the value of a particular field for the specified stylist.
 
-Program should show a list of clients for a stylist.
-Input: action to request list of clients for stylist. stylist.GetClients()
-Output: list of clients. List<Client>. ex Carol: Joe Joeson, Tom Tomson.
-Given a stylist id or as a stylist method, the program should be able to return a list of clients having that stylist id.
+* Program should show a list of clients for a stylist.
+    * Input: action to request list of clients for stylist. stylist.GetClients()
+    * Output: list of clients. List<Client>. ex Carol: Joe Joeson, Tom Tomson.
+    * Given a stylist id or as a stylist method, the program should be able to return a list of clients having that stylist id.
 
-Program should be able to create new clients for a stylist
-Input: Form with relevant fields for client input. Client newClient = newClient("Tom", "Tomson", "503-555-1234", 1(stylistId))
-Output: Client is added to the system for that stylist. stylist.GetClients().Count
-Given a stylist id or as a stylist method, the count of Clients returned from that stylist's GetClient() method should increase as expected.
+* Program should be able to create new clients for a stylist
+    * Input: Form with relevant fields for client input. Client newClient = newClient("Tom", "Tomson", "503-555-1234", 1(stylistId))
+    * Output: Client is added to the system for that stylist. stylist.GetClients().Count
+    * Given a stylist id or as a stylist method, the count of Clients returned from that stylist's GetClient() method should increase as expected.
 
----other features
-Program should allow deletion of a single stylist (with the deletion of their clients)
-Input: Delete(); on Carol
-Output: Delete Carol and all of her Clients.
+* Program should allow deletion of a single stylist (with the deletion of their clients)
+    * Input: Delete(); on Carol
+    * Output: Delete Carol and all of her Clients.
 
-Program should allow deletion of a single client
-Input: Delete(); on Tom
-Output: Delete Tom from database. Stylist should be unaffected.
+* Program should allow deletion of a single client
+    * Input: Delete(); on Tom
+    * Output: Delete Tom from database. Stylist should be unaffected.
 
+## Set up and installation
+* Install .NET Core 1.1 SDK (Software Development Kit) and .NET runtime
+* Install MAMP. https://www.mamp.info/en/downloads/
+* Modify preferences to use ports 8888 and 8889 for Apache & MySQL, respectively
+* Log into MySQL:
+```
+$ C:\MAMP\bin\mysql\bin\mysql -uroot -proot -P8889
+```
+From your command line once you've logged into MySQL, create the database and tables via the following instructions.
+```
+CREATE DATABASE kayla_ondracek;
+USE kayla_ondracek;
+CREATE TABLE `clients` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `stylist_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `stylists` (
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `specialty` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `stylists`
+ADD PRIMARY KEY (`id`);
+ALTER TABLE `clients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `stylists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
+```
 
+* Clone the app
+```
+git clone https://github.com/grepcats/hair-salon
+```
+* navigate to "HairSalon" folder one level down
+* run "dotnet restore" in project folder to load dependencies
+* run "dotnet build" to build project and its dependencies into a set of binaries
+* run "dotnet run" to run the project
+* Open web browser and navigate to http://localhost:5000. Program will run as long as it is running in the terminal.
 
+## Known Bugs
+No known bugs at this time. Please report any bugs by opening a GitHub issue.
 
+## Support and Contact Details
+If there are any issues or questions, please contact me at kayla.renee at gmail dot com or create an issue in GitHub.
 
+## Technologies Used
+C#/ASP.NET Core 1.1, Bootstrap, MAMP.
 
-As a salon employee, I need to be able to see a list of all our stylists.
-As an employee, I need to be able to select a stylist, see their details, and see a list of all clients that belong to that stylist.
-As an employee, I need to add new stylists to our system when they are hired.
-As an employee, I need to be able to add new clients to a specific stylist. I should not be able to add a client if no stylists have been added.
+## License
+MIT License
+
+Copyright (c) 2018 Kayla Ondracek
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
