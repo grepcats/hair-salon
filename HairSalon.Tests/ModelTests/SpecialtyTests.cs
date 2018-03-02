@@ -150,5 +150,23 @@ namespace HairSalon.Tests
             //assert
             CollectionAssert.AreEqual(result, testList);
         }
+
+        [TestMethod]
+        public void Delete_DeleteSpecialtyFromDB_List()
+        {
+            //arrange
+            Specialty newSpecialty1 = new Specialty("Cutting Hair");
+            newSpecialty1.Save();
+            List<Specialty> originalList = Specialty.GetAllSpecialties();
+            Specialty newSpecialty2 = new Specialty("Curly Hair");
+            newSpecialty2.Save();
+
+            //act
+            newSpecialty2.Delete();
+            List<Specialty> newList = Specialty.GetAllSpecialties();
+
+            //assert
+            CollectionAssert.AreEqual(newList, originalList);
+        }
     }
 }

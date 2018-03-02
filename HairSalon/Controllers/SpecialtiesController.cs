@@ -53,5 +53,14 @@ namespace HairSalon.Controllers
 
             return RedirectToAction("Details");
         }
+
+        [HttpGet("/specialties/{id}/delete")]
+        public ActionResult Delete(int id)
+        {
+            Specialty foundSpecialty = Specialty.Find(id);
+            foundSpecialty.Delete();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -15,7 +15,6 @@
 <div class="options well">
     <h3 class="options">Options</h3>
     <p class="options"><span class="glyphicon glyphicon-plus"></span> <a href="/specialties/new">Add new specialty</a></p>
-    @* <p class="options"><a href="/specialties/delete"><span class="glyphicon glyphicon-warning-sign"></span> Delete All Specialties</a></p> *@
 
 </div>
 
@@ -26,6 +25,7 @@
             <tr>
                 <th>Specialty Name</th>
                 <th>Details</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +34,7 @@
                 <tr>
                     <td>@specialty.GetName()</td>
                     <td><a href="/specialties/@specialty.GetId()"><span class="glyphicon glyphicon-list-alt"></span></a></td>
+                    <td><a href="/specialties/@specialty.GetId()/delete"><span class="glyphicon glyphicon-remove"></span></a>
                 </tr>
             }
         </tbody>
