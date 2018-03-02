@@ -3,3 +3,25 @@
 }
 
 <h2>Details for specialty</h2>
+<p>Name of specialty: @Model["specialty"].GetName()</p>
+
+@if (@Model["stylists"].Count > 0)
+{
+    <h3>Stylists with this specialty</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Stylist Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var stylist in @Model["stylists"])
+            {
+                <tr>
+                    <td>@stylist.GetFirstName() @stylist.GetLastName()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<a href="/specialties">Back to home</a>

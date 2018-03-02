@@ -75,10 +75,11 @@
     * Input: from Stylist create or update page, add specialties.
     * Output: relationship is created in specialties_stylists table
 
-        ////
 * Program should allow user to click a specialty and see all stylists that have that specialty
     * Input: On Specialty index, click specialty
     * Output: Specialty Details page with List<Stylist>
+
+            ////
 
 * Program should allow users to see stylists specialties on their details page
     * Input: Click stylist details
