@@ -25,7 +25,7 @@ namespace HairSalon.Tests
         public void DeleteAll_RemoveAllStylists_Void()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Hair");
+            Stylist newStylist = new Stylist("Carol", "Smith");
 
             //act
             Stylist.DeleteAll();
@@ -49,31 +49,28 @@ namespace HairSalon.Tests
         public void Getters_GettersReturnAppropriately_StringsAndInts()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair", 1);
+            Stylist newStylist = new Stylist("Carol", "Smith", 1);
             string controlFirst = "Carol";
             string controlLast = "Smith";
             int controlId = 1;
-            string controlSpecialty = "Curly Hair";
 
             //act
             string resultFirst = newStylist.GetFirstName();
             string resultLast = newStylist.GetLastName();
             int resultId = newStylist.GetId();
-            string resultSpecialty = newStylist.GetSpecialty();
 
             //assert
             Assert.AreEqual(controlFirst, resultFirst);
             Assert.AreEqual(controlLast, resultLast);
             Assert.AreEqual(controlId, resultId);
-            Assert.AreEqual(controlSpecialty, resultSpecialty);
         }
 
         [TestMethod]
         public void Equals_ReturnsTrueIfFirstNameSame_Stylist()
         {
             //arrange, act
-            Stylist firstStylist = new Stylist("Carol", "Smith", "Curly Hair", 1);
-            Stylist secondStylist = new Stylist("Carol", "Smith", "Curly Hair", 1);
+            Stylist firstStylist = new Stylist("Carol", "Smith", 1);
+            Stylist secondStylist = new Stylist("Carol", "Smith", 1);
 
             //assert
             Assert.AreEqual(firstStylist, secondStylist);
@@ -83,7 +80,7 @@ namespace HairSalon.Tests
         public void Save_SavesToDatabase_StylistList()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            Stylist newStylist = new Stylist("Carol", "Smith");
 
             //act
             newStylist.Save();
@@ -100,7 +97,7 @@ namespace HairSalon.Tests
         public void Save_AssignsIdToObject_Id()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            Stylist newStylist = new Stylist("Carol", "Smith");
 
             //act
             newStylist.Save();
@@ -116,7 +113,7 @@ namespace HairSalon.Tests
         public void GetClients_GetClientsForThisStylist_ListClients()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            Stylist newStylist = new Stylist("Carol", "Smith");
             newStylist.Save();
             Client newClient = new Client("Tom", "Tomson", "503-555-1234");
             newClient.SetStylistId(newStylist.GetId());
@@ -137,8 +134,8 @@ namespace HairSalon.Tests
         public void Find_ReturnAStylist_Stylist()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
-            Stylist newStylist2 = new Stylist("Jane", "Fonda", "Short Hair");
+            Stylist newStylist = new Stylist("Carol", "Smith");
+            Stylist newStylist2 = new Stylist("Jane", "Fonda");
             newStylist.Save();
             newStylist2.Save();
             List<Stylist> allStylists = Stylist.GetAllStylists();
@@ -154,7 +151,7 @@ namespace HairSalon.Tests
         public void Delete_DeleteStylistandClientsfromDB_void()
         {
             //arrange
-            Stylist newStylist1 = new Stylist("Carol", "Smith", "Curly Hair");
+            Stylist newStylist1 = new Stylist("Carol", "Smith");
             newStylist1.Save();
             Client newClient1 = new Client("Tom", "Tomson", "503-555-1234");
             Client newClient2 = new Client("Bill", "Billson", "503-555-1234");
@@ -163,7 +160,7 @@ namespace HairSalon.Tests
             newClient1.Save();
             newClient2.Save();
 
-            Stylist newStylist2 = new Stylist("Jane", "Fonda", "Short Hair");
+            Stylist newStylist2 = new Stylist("Jane", "Fonda");
             newStylist2.Save();
             Client newClient3 = new Client("Tom", "Tomson", "503-555-1234");
             Client newClient4 = new Client("Bill", "Billson", "503-555-1234");
@@ -186,7 +183,7 @@ namespace HairSalon.Tests
         public void Edit_EditStylistInfoInDB_Stylist()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            Stylist newStylist = new Stylist("Carol", "Smith");
             newStylist.Save();
             string newLast = "Brady";
 

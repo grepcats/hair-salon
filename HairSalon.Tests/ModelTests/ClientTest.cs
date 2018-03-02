@@ -51,7 +51,7 @@ namespace HairSalon.Tests
         {
             //arrange
             Client newClient = new Client("Tom", "Tomson", "503-555-1234", 1);
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair", 5);
+            Stylist newStylist = new Stylist("Carol", "Smith", 5);
             int controlId = 5;
 
             //act
@@ -92,7 +92,7 @@ namespace HairSalon.Tests
             newClient.Save();
             List<Client> result = Client.GetAllClients();
             List<Client> testList = new List<Client>{newClient};
-            
+
             //assert
             CollectionAssert.AreEqual(testList, result);
         }
@@ -149,9 +149,9 @@ namespace HairSalon.Tests
         public void Edit_EditClientInfoInDB_Client()
         {
             //arrange
-            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            Stylist newStylist = new Stylist("Carol", "Smith");
             newStylist.Save();
-            Stylist newStylist2 = new Stylist("Andrea", "HairCuts", "Curly Hair");
+            Stylist newStylist2 = new Stylist("Andrea", "HairCuts");
             newStylist2.Save();
             Client newClient = new Client("Bob", "Bobson", "222-222-2222");
             newClient.Save();

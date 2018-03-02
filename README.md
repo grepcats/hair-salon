@@ -63,15 +63,15 @@
     * Input: Update/Edit method for Clients (name, contact)
     * Output: Set Client info in Database
 
-    ////
-
-* Program should allow adding specialties 
+* Program should allow adding specialties
     * Input: Add specialties page. Specialties model, specialties table, join table.
     * Output: Add specialty.
 
 * Program should allow viewing specialties
     * Input: Navigate to specialties index page.
     * Output: GetAllSpecialties should display a list of Specialties. List<Specialty>
+
+        ////
 
 * Program should allow adding a specialty to a stylist (many to many)
     * Input: from Stylist create or update page, add specialties.
