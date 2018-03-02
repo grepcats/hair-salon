@@ -197,6 +197,52 @@ namespace HairSalon.Models
             }
         }
 
+        public void Edit(string firstName, string lastName, string phoneNumber, int stylistId)
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"UPDATE clients SET first_name = @FirstName, last_name = @LastName, phone_number = @PhoneNumber, stylist_id = @StylistId WHERE id = @ClientId;";
+
+            MySqlParameter clientFirstName = new MySqlParameter();
+            clientFirstName.ParameterName = "@FirstName";
+            clientFirstName.Value = firstName;
+            cmd.Parameters.Add(clientFirstName);
+
+            MySqlParameter clientLastName = new MySqlParameter();
+            clientLastName.ParameterName = "@LastName";
+            clientLastName.Value = lastName;
+            cmd.Parameters.Add(clientLastName);
+
+            MySqlParameter clientPhoneNumber = new MySqlParameter();
+            clientPhoneNumber.ParameterName = "@PhoneNumber";
+            clientPhoneNumber.Value = phoneNumber;
+            cmd.Parameters.Add(clientPhoneNumber);
+
+            MySqlParameter clientStylistId = new MySqlParameter();
+            clientStylistId.ParameterName = "@StylistId";
+            clientStylistId.Value = stylistId;
+            cmd.Parameters.Add(clientStylistId);
+
+            MySqlParameter clientId = new MySqlParameter();
+            clientId.ParameterName = "@ClientId";
+            clientId.Value = this._id;
+            cmd.Parameters.Add(clientId);
+
+            cmd.ExecuteNonQuery();
+
+            _firstName = firstName;
+            _lastName = lastName;
+            _phoneNumber = phoneNumber;
+            _stylistId = stylistId;
+
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+        }
+
 
 
     }

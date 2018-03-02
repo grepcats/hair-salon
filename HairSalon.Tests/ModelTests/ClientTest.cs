@@ -126,6 +126,7 @@ namespace HairSalon.Tests
             Assert.AreEqual(foundClient, controlClient);
         }
 
+        [TestMethod]
         public void Delete_DeleteAClientInDatabase_void()
         {
             //arrange
@@ -141,6 +142,32 @@ namespace HairSalon.Tests
 
             //assert
             CollectionAssert.AreEqual(newList, originalList);
+        }
+
+        [TestMethod]
+        public void Edit_EditClientInfoInDB_Client()
+        {
+            //arrange
+            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            newStylist.Save();
+            Stylist newStylist2 = new Stylist("Andrea", "HairCuts", "Curly Hair");
+            newStylist2.Save();
+            Client newClient = new Client("Bob", "Bobson", "222-222-2222");
+            newClient.Save();
+            newClient.SetStylistId(newStylist.GetId());
+            string newFirstName = "Bill";
+            string newLastName = "Billson";
+            string newPhone = "333-333-3333";
+            int stylistId = newStylist2.GetId();
+
+            //act
+            newClient.Edit(newFirstName, newLastName, newPhone, stylistId);
+
+            //assert
+            Assert.AreEqual(newFirstName, newClient.GetFirstName());
+            Assert.AreEqual(newLastName, newClient.GetLastName());
+            Assert.AreEqual(newPhone, newClient.GetPhoneNumber());
+            Assert.AreEqual(stylistId, newClient.GetStylistId());
         }
     }
 }
