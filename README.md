@@ -54,11 +54,11 @@
     * Input: Find a client and click their name to view their details.
     * Output: Getter methods for that client
 
-////
-
 * Program should allow editing of stylist information
     * Input: Update/Edit method for Stylists (name)
     * Output: Set stylist name in Database.
+
+////
 
 * Program should allow editing of client information
     * Input: Update/Edit method for Clients (name, contact)
