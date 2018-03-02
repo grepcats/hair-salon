@@ -1,0 +1,9 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Details for Client @Model["client"].GetFirstName() @Model["client"].GetLastName()</h2>
+
+<p>Phone Number: @Model["client"].GetPhoneNumber()</p>
+<p>Current Stylist: @Model["stylist"].GetFirstName() @Model["stylist"].GetLastName()</p>
+<a href="/clients">Return to clients</a> 

@@ -10,6 +10,7 @@
             <tr>
                 <th>Client Name</th>
                 <th>Client Contact</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                 <tr>
                     <td>@client.GetFirstName() @client.GetLastName()</td>
                     <td>@client.GetPhoneNumber()</td>
+                    <td><a href="/clients/@client.GetId()">Details</a></td>
                 </tr>
             }
         </tbody>
