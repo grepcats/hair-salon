@@ -25,9 +25,8 @@ namespace HairSalon.Controllers
         public ActionResult DeleteClient(int id)
         {
             Client foundClient = Client.Find(id);
-            int stylistId = foundClient.GetStylistId();
             foundClient.Delete();
-            return RedirectToAction("Details", "stylists", new{Id=stylistId});
+            return RedirectToAction("Index");
         }
 
         [HttpGet("/clients/delete")]
