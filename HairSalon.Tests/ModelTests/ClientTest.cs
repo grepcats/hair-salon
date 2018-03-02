@@ -92,7 +92,7 @@ namespace HairSalon.Tests
             newClient.Save();
             List<Client> result = Client.GetAllClients();
             List<Client> testList = new List<Client>{newClient};
-            string testName = result[0].GetFirstName();
+            
             //assert
             CollectionAssert.AreEqual(testList, result);
         }

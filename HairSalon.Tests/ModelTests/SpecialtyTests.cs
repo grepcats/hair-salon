@@ -57,5 +57,20 @@ namespace HairSalon.Tests
             //assert
             Assert.AreEqual(firstSpecialty, secondSpecialty);
         }
+
+        [TestMethod]
+        public void Save_SavesToDatabase_SpecialtyList()
+        {
+            //arrange
+            Specialty newSpecialty = new Specialty("Cutting Hair");
+
+            //act
+            newSpecialty.Save();
+            List<Specialty> result = Specialty.GetAllSpecialties();
+            List<Specialty> testList = new List<Specialty>{newSpecialty};
+
+            //assert
+            CollectionAssert.AreEqual(testList, result);
+        }
     }
 }

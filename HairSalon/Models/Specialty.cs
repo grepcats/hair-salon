@@ -61,7 +61,30 @@ namespace HairSalon.Models
 
         public void Save()
         {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"INSERT INTO `specialties` (`name`, `id`) VALUES (@Name, @Id);";
 
+            MySqlParameter specialtyName = new MySqlParameter();
+            specialtyName.ParameterName = "@Name";
+            specialtyName.Value = this._name;
+
+            MySqlParameter specialtyId = new MySqlParameter();
+            specialtyId.ParameterName = "@Id";
+            specialtyId.Value = this._id;
+
+            cmd.Parameters.Add(specialtyName);
+            cmd.Parameters.Add(specialtyId);
+
+            cmd.ExecuteNonQuery();
+            _id = (int) cmd.LastInsertedId;
+
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
         }
 
         public override bool Equals(System.Object otherSpecialty)
