@@ -84,11 +84,11 @@
     * Input: Click stylist details
     * Output: on Stylist details page, see list of specialties.
 
-                ////
 
 * Program should let user add a stylist to a specialty
     * Input: from Specialty details page, add stylist to specialty.
     * Output: relationship is created in specialties_stylists table.
+
 
 
 ## Set up and installation

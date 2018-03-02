@@ -2,6 +2,14 @@
   Layout = "_Layout";
 }
 
+<nav class="well">
+    <ul class="nav nav-pills purple nav-justified">
+        <li class="active"><a href="/stylists">Stylists</a></li>
+        <li><a href="/clients">Clients</a></li>
+        <li><a href="/specialties">Specialties</a></li>
+    </ul>
+</nav>
+
 <h2>Add Client for @Model.GetFirstName()</h2>
 
 <form method="post" action="/stylists/@Model.GetId()/clients">

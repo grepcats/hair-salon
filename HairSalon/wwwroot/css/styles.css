@@ -1,24 +1,45 @@
 .jumbotron {
     color: #5C5D8D;
-    font-weight: bold;
     text-align: center;
     background-color: #A8C69F;
 }
 
-h1 {
-    color: #5C5D8D;
+.jumbotron h1 {
+    font-size: 5em;
+    font-weight:bold;
 }
 
 h2 {
     color: #5C5D8D;
     font-weight: bold;
-    font-size: 3em;
+    font-size: 4em;
     text-align:center;
+    margin-top: 30px
 }
 
 h3 {
     color: #5C5D8D;
     text-align:center;
+}
+
+.options h3 {
+    text-align: left;
+}
+
+.options p {
+    margin-left: 20px;
+    font-size: 1.25em;
+}
+
+form.options {
+    width: 200px;
+    margin-left: 20px;
+}
+
+select.form-control {
+    width: 200px;
+    margin-left:20px;
+    display:inline;
 }
 
 a {
@@ -44,8 +65,13 @@ a {
 a:hover {
     color: #5C5D8D;
     text-decoration: none;
-
 }
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover {
+    background-color: #654F6F;
+}
+
 
 /*
 Blue; 5C5D8D

@@ -2,8 +2,15 @@
   Layout = "_Layout";
 }
 
+<nav class="well">
+    <ul class="nav nav-pills purple nav-justified">
+        <li><a href="/stylists">Stylists</a></li>
+        <li class="active"><a href="/clients">Clients</a></li>
+        <li><a href="/specialties">Specialties</a></li>
+    </ul>
+</nav>
+
 <h2>Details for Client @Model["client"].GetFirstName() @Model["client"].GetLastName()</h2>
 
-<p>Phone Number: @Model["client"].GetPhoneNumber()</p>
-<p>Current Stylist: @Model["stylist"].GetFirstName() @Model["stylist"].GetLastName()</p>
-<a href="/clients">Return to clients</a> 
+<h3>Phone Number: @Model["client"].GetPhoneNumber()</h3>
+<h3>Current Stylist: @Model["stylist"].GetFirstName() @Model["stylist"].GetLastName()</h3>
