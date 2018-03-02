@@ -79,11 +79,12 @@
     * Input: On Specialty index, click specialty
     * Output: Specialty Details page with List<Stylist>
 
-            ////
 
 * Program should allow users to see stylists specialties on their details page
     * Input: Click stylist details
     * Output: on Stylist details page, see list of specialties.
+
+                ////
 
 * Program should let user add a stylist to a specialty
     * Input: from Specialty details page, add stylist to specialty.
