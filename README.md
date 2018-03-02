@@ -71,12 +71,11 @@
     * Input: Navigate to specialties index page.
     * Output: GetAllSpecialties should display a list of Specialties. List<Specialty>
 
-        ////
-
 * Program should allow adding a specialty to a stylist (many to many)
     * Input: from Stylist create or update page, add specialties.
     * Output: relationship is created in specialties_stylists table
 
+        ////
 * Program should allow user to click a specialty and see all stylists that have that specialty
     * Input: On Specialty index, click specialty
     * Output: Specialty Details page with List<Stylist>
