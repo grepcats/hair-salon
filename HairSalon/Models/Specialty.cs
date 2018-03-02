@@ -59,9 +59,30 @@ namespace HairSalon.Models
             }
         }
 
-        // public void Save()
-        // {
-        //
-        // }
+        public void Save()
+        {
+
+        }
+
+        public override bool Equals(System.Object otherSpecialty)
+        {
+            if (!(otherSpecialty is Specialty))
+            {
+                return false;
+            }
+            else
+            {
+                Specialty newSpecialty = (Specialty) otherSpecialty;
+                bool idEquality = (this.GetId() == newSpecialty.GetId());
+                bool nameEquality = (this.GetName() == newSpecialty.GetName());
+
+                return (idEquality && nameEquality);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.GetName().GetHashCode();
+        }
     }
 }
