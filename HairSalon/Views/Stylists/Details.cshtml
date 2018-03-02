@@ -9,7 +9,7 @@
     <a href='/stylists/@Model["stylist"].GetId()/clients/new'><span class="glyphicon glyphicon-plus"></span>Add new client</a>
 </div>
 <div>
-    <form method="post" action='/stylists/@Model["stylist"]/add-specialty'>
+    <form method="post" action='/stylists/@Model["stylist"].GetId()/add-specialty'>
         <select name="add-specialty">
             @foreach (var specialty in @Model["allSpecialties"])
             {
@@ -18,7 +18,6 @@
         </select>
         <button type="submit">Add Specialty</button>
     </form>
-    <a href='/stylists/@Model["stylist"].GetId()/specialties/new'><span class="glyphicon glyphicon-plus"></span>Add new client</a>
 </div>
 
 @if (@Model["clients"].Count > 0)

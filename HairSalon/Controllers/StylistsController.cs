@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using HairSalon.Models;
+using System;
 
 namespace HairSalon.Controllers
 {
@@ -82,13 +83,18 @@ namespace HairSalon.Controllers
             foundStylist.Edit(Request.Form["s-first-name"], Request.Form["s-last-name"]);
             return RedirectToAction("Index");
         }
-        // 
-        // [HttpPost("/stylists/{id}/add-specialty")]
-        // public ActionResult AddSpecialty(int id)
-        // {
-        //     Stylist foundStylist = Stylist.Find(id);
-        //
-        // }
+
+        [HttpPost("/stylists/{id}/add-specialty")]
+        public ActionResult AddSpecialty(int id)
+        {
+            int specialtyId = Int32.Parse(Request.Form["add-specialty"]);
+            Stylist foundStylist = Stylist.Find(id);
+            Specialty foundSpecialty = Specialty.Find(specialtyId);
+            foundStylist.AddSpecialty(foundSpecialty);
+
+            return RedirectToAction("Details");
+
+        }
 
 
 
