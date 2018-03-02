@@ -6,7 +6,7 @@ namespace HairSalon.Controllers
 {
     public class StylistsController : Controller
     {
-        [Route("/")]
+        [HttpGet("/stylists")]
         public ActionResult Index()
         {
             List<Stylist> allStylists = Stylist.GetAllStylists();
@@ -53,6 +53,14 @@ namespace HairSalon.Controllers
         {
             Stylist foundStylist = Stylist.Find(id);
             foundStylist.Delete();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("/stylists/delete")]
+        public ActionResult DeleteAllStylists()
+        {
+            Stylist.DeleteAll();
+
             return RedirectToAction("Index");
         }
 

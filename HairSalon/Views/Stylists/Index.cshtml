@@ -8,22 +8,27 @@
 <div class="add">
     <a href="/stylists/new"><span class="glyphicon glyphicon-plus"></span>Add new stylist</a>
 </div>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Details & Clients</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var stylist in Model)
-        {
+@if (@Model.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>@stylist.GetFirstName() @stylist.GetLastName()</td>
-                <td><a href="/stylists/@stylist.GetId()"><span class="glyphicon glyphicon-list-alt"></span></a></td>
-                <td><a href="/stylists/@stylist.GetId()/delete"><span class="glyphicon glyphicon-remove"></span></a></td>
+                <th>Name</th>
+                <th>Details & Clients</th>
+                <th>Delete</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach(var stylist in Model)
+            {
+                <tr>
+                    <td>@stylist.GetFirstName() @stylist.GetLastName()</td>
+                    <td><a href="/stylists/@stylist.GetId()"><span class="glyphicon glyphicon-list-alt"></span></a></td>
+                    <td><a href="/stylists/@stylist.GetId()/delete"><span class="glyphicon glyphicon-remove"></span></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/stylists/delete">Delete All Stylists</a>
+    <a href="/">Return Home</a>
+}

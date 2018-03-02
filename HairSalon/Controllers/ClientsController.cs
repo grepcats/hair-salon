@@ -7,6 +7,13 @@ namespace HairSalon.Controllers
 {
     public class ClientsController : Controller
     {
+        [HttpGet("/clients")]
+        public ActionResult Index()
+        {
+            List<Client> allClients = Client.GetAllClients();
+            return View("Index", allClients);
+        }
+
         [HttpGet("/stylists/{stylistId}/clients/new")]
         public ActionResult CreateClientForm(int stylistId)
         {

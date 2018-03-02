@@ -10,6 +10,33 @@ namespace HairSalon.Tests
     public class ClientsControllerTest
     {
         [TestMethod]
+        public void Index_ReturnIfView_True()
+        {
+            //arrange
+            ClientsController controller = new ClientsController();
+
+            //act
+            IActionResult indexView = controller.Index();
+            ViewResult result = indexView as ViewResult;
+
+            //assert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
+
+        [TestMethod]
+        public void Index_HasCorrectModelType_True()
+        {
+            //arrange
+            ViewResult indexView = new ClientsController().Index() as ViewResult;
+
+            //act
+            var result = indexView.ViewData.Model;
+
+            //assert
+            Assert.IsInstanceOfType(result, typeof(List<Client>));
+        }
+
+        [TestMethod]
         public void CreateClientForm_ReturnIfView_True()
         {
             //arrange

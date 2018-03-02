@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Clients</h2>
+@if (@Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Client Name</th>
+                <th>Client Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var client in @Model)
+            {
+                <tr>
+                    <td>@Model.GetFirstName() @Model.GetLastName()</td>
+                    <td>@Model.GetPhoneNumber()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<a href="/">Return Home</a>

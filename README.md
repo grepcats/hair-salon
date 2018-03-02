@@ -43,13 +43,13 @@
     * Input: DeleteAll() and command to use this method on stylists. (Should this also delete their clients?)
     * Ouptut: Delete all stylists from Database.
 
-* Program should allow deletion of all Clients
-    * Input: DeleteAll() and command to use this method on clients.
-    * Output: Delete all clients from Database.
-
 * Program should let user view all existing Clients
     * Input: GetAll() method and command to perform method.
     * Output: List<Client> on a Clients index page.
+
+* Program should allow deletion of all Clients
+    * Input: DeleteAll() and command to use this method on clients.
+    * Output: Delete all clients from Database.
 
 * Program should let user view a single Client
     * Input: Find a client and click their name to view their details.
