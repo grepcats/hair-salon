@@ -38,7 +38,6 @@
     * Input: Delete(); on Tom
     * Output: Delete Tom from database. Stylist should be unaffected.
 
-////
 * Program should allow deletion of all stylists
     * Input: DeleteAll() and command to use this method on stylists. (Should this also delete their clients?)
     * Ouptut: Delete all stylists from Database.
@@ -54,6 +53,8 @@
 * Program should let user view a single Client
     * Input: Find a client and click their name to view their details.
     * Output: Getter methods for that client
+
+////
 
 * Program should allow editing of stylist information
     * Input: Update/Edit method for Stylists (name)

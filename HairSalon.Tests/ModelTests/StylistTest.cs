@@ -180,5 +180,21 @@ namespace HairSalon.Tests
             //assert
             Assert.AreEqual(numExistingClientsControl, result);
         }
+
+        [TestMethod]
+        public void Edit_EditStylistInfoInDB_Stylist()
+        {
+            //arrange
+            Stylist newStylist = new Stylist("Carol", "Smith", "Curly Hair");
+            newStylist.Save();
+            string newLast = "Brady";
+
+            //act
+            newStylist.Edit("Carol", newLast);
+            string result = newStylist.GetLastName();
+
+            //assert
+            Assert.AreEqual(newLast, result);
+        }
     }
 }
