@@ -34,11 +34,24 @@ namespace HairSalon.Controllers
         {
             Specialty newSpecialty = Specialty.Find(id);
             List<Stylist> stylists = newSpecialty.GetStylists();
+            List<Stylist> allStylists = Stylist.GetAllStylists();
             Dictionary<string,object> model = new Dictionary<string,object>();
             model.Add("specialty", newSpecialty);
             model.Add("stylists", stylists);
+            model.Add("allStylists", allStylists);
 
             return View("Details", model);
+        }
+
+        [HttpPost("/specialties/{id}/add-stylist")]
+        public ActionResult AddStylist(int id)
+        {
+            int stylistId = Int32.Parse(Request.Form["add-stylist"]);
+            Stylist foundStylist = Stylist.Find(stylistId);
+            Specialty foundSpecialty = Specialty.Find(id);
+            foundSpecialty.AddStylist(foundStylist);
+
+            return RedirectToAction("Details");
         }
     }
 }

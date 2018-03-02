@@ -146,6 +146,7 @@ namespace HairSalon.Tests
             newSpecialty1.AddStylist(newStylist1);
             List<Stylist> result = newSpecialty1.GetStylists();
 
+
             //assert
             CollectionAssert.AreEqual(result, testList);
         }

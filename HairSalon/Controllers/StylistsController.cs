@@ -93,8 +93,9 @@ namespace HairSalon.Controllers
             foundStylist.AddSpecialty(foundSpecialty);
 
             return RedirectToAction("Details");
-
         }
+
+
 
 
 
