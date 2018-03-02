@@ -33,10 +33,12 @@ namespace HairSalon.Controllers
             Stylist foundStylist = Stylist.Find(id);
             List<Client> clients = foundStylist.GetClients();
             List<Specialty> specialties = foundStylist.GetSpecialties();
+            List<Specialty> allSpecialties = Specialty.GetAllSpecialties();
             Dictionary<string, object> model = new Dictionary<string,object>();
             model.Add("stylist", foundStylist);
             model.Add("clients", clients);
             model.Add("specialties", specialties);
+            model.Add("allSpecialties", allSpecialties);
 
             return View("Details", model);
         }
@@ -80,6 +82,13 @@ namespace HairSalon.Controllers
             foundStylist.Edit(Request.Form["s-first-name"], Request.Form["s-last-name"]);
             return RedirectToAction("Index");
         }
+        // 
+        // [HttpPost("/stylists/{id}/add-specialty")]
+        // public ActionResult AddSpecialty(int id)
+        // {
+        //     Stylist foundStylist = Stylist.Find(id);
+        //
+        // }
 
 
 
