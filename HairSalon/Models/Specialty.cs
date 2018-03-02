@@ -18,5 +18,50 @@ namespace HairSalon.Models
         public int GetId() { return _id;}
 
         public string GetName() { return _name;}
+
+        public static List<Specialty> GetAllSpecialties()
+        {
+            List<Specialty> allSpecialties = new List<Specialty>{};
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"SELECT * FROM specialties;";
+            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+            while(rdr.Read())
+            {
+              string specialtyName = rdr.GetString(1);
+              int specialtyId = rdr.GetInt32(0);
+              Specialty newSpecialty = new Specialty(specialtyName, specialtyId);
+              allSpecialties.Add(newSpecialty);
+            }
+            conn.Close();
+            if (conn != null)
+            {
+              conn.Dispose();
+            }
+            return allSpecialties;
+        }
+
+        public static void DeleteAll()
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"DELETE FROM specialties;";
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+        }
+
+        // public void Save()
+        // {
+        //
+        // }
     }
 }

@@ -12,6 +12,7 @@ namespace HairSalon.Tests
         {
             Stylist.DeleteAll();
             Client.DeleteAll();
+            Specialty.DeleteAll();
         }
 
         public ClientTests()
