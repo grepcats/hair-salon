@@ -38,6 +38,44 @@
     * Input: Delete(); on Tom
     * Output: Delete Tom from database. Stylist should be unaffected.
 
+////
+* Program should allow deletion of all stylists
+    * Input: DeleteAll() and command to use this method on stylists. (Should this also delete their clients?)
+    * Ouptut: Delete all stylists from Database.
+
+* Program should allow deletion of all Clients
+    * Input: DeleteAll() and command to use this method on clients.
+    * Output: Delete all clients from Database.
+
+* Program should let user view all existing Clients
+    * Input: GetAll() method and command to perform method.
+    * Output: List<Client> on a Clients index page.
+
+* Program should let user view a single Client
+    * Input: Find a client and click their name to view their details.
+    * Output: Getter methods for that client
+
+* Program should allow editing of stylist information
+    * Input: Update/Edit method for Stylists (name)
+    * Output: Set stylist name in Database.
+
+* Program should allow editing of client information
+    * Input: Update/Edit method for Clients (name, contact)
+    * Output: Set Client info in Database
+
+* Program should allow adding specialties
+
+* Program should allow viewing specialties
+
+* Program should allow adding a specialty to a stylist (many to many)
+
+* Program should allow user to click a specialty and see all stylists that have that specialty
+
+* Program should allow users to see stylists specialties on their details page
+
+* Program should let user add a stylist to a specialty
+
+
 ## Set up and installation
 * Install .NET Core 1.1 SDK (Software Development Kit) and .NET runtime
 * Install MAMP. https://www.mamp.info/en/downloads/
