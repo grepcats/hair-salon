@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Update Client @Model["client"].GetFirstName()</h2>
+
+<form method="post" action='/clients/@Model["client"].GetId()/update'>
+    <div class="form-group">
+        <label for="c-first-name">First Name</label>
+        <input type="text" name="c-first-name" class="form-control" value='@Model["client"].GetFirstName()'>
+    </div>
+    <div class="form-group">
+        <label for="c-last-name">Last Name</label>
+        <input type="text" name="c-last-name" class="form-control" value='@Model["client"].GetLastName()'>
+    </div>
+    <div class="form-group">
+        <label for="phone-number">Phone Number</label>
+        <input type="text" name="phone-number" class="form-control" value='@Model["client"].GetPhoneNumber()'>
+    </div>
+    <div class="form-group">
+        <label for="stylist">Stylist</label>
+        <select name="stylist">
+            @foreach(var stylist in @Model["stylists"])
+            {
+                <option value="@stylist.GetId()">@stylist.GetFirstName() @stylist.GetLastName()</option>
+            }
+        </select>
+    <button type="submit" class="btn btn-default">Update Client</button>
+</form>
+
+<p class="nav"><a href="/clients">Return to Clients</a></p>
