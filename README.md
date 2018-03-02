@@ -58,23 +58,36 @@
     * Input: Update/Edit method for Stylists (name)
     * Output: Set stylist name in Database.
 
-////
 
 * Program should allow editing of client information
     * Input: Update/Edit method for Clients (name, contact)
     * Output: Set Client info in Database
 
-* Program should allow adding specialties
+    ////
+
+* Program should allow adding specialties 
+    * Input: Add specialties page. Specialties model, specialties table, join table.
+    * Output: Add specialty.
 
 * Program should allow viewing specialties
+    * Input: Navigate to specialties index page.
+    * Output: GetAllSpecialties should display a list of Specialties. List<Specialty>
 
 * Program should allow adding a specialty to a stylist (many to many)
+    * Input: from Stylist create or update page, add specialties.
+    * Output: relationship is created in specialties_stylists table
 
 * Program should allow user to click a specialty and see all stylists that have that specialty
+    * Input: On Specialty index, click specialty
+    * Output: Specialty Details page with List<Stylist>
 
 * Program should allow users to see stylists specialties on their details page
+    * Input: Click stylist details
+    * Output: on Stylist details page, see list of specialties.
 
 * Program should let user add a stylist to a specialty
+    * Input: from Specialty details page, add stylist to specialty.
+    * Output: relationship is created in specialties_stylists table.
 
 
 ## Set up and installation
