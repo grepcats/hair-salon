@@ -194,5 +194,23 @@ namespace HairSalon.Tests
             //assert
             Assert.AreEqual(newLast, result);
         }
+
+        [TestMethod]
+        public void AddSpecialty_AddsEntryToJunctionTable_ListSpecialties()
+        {
+            //arrange
+            Specialty newSpecialty = new Specialty("Cutting Hair");
+            newSpecialty.Save();
+            Stylist newStylist = new Stylist("Carol", "Smith");
+            newStylist.Save();
+
+            //act
+            newStylist.AddSpecialty(newSpecialty);
+            List<Specialty> testList = new List<Specialty>{newSpecialty};
+            List<Specialty> result = newStylist.GetSpecialties();
+            Console.WriteLine(result.Count);
+            //assert
+            CollectionAssert.AreEqual(testList, result);
+        }
     }
 }
