@@ -48,6 +48,23 @@ namespace HairSalon.Tests
         }
 
         [TestMethod]
+        public void GetAllSpecialties_GetThemAll_ListSpecialty()
+        {
+            //arrange
+            Specialty newSpecialty1 = new Specialty("Cutting Hair");
+            Specialty newSpecialty2 = new Specialty("Curly Hair");
+            newSpecialty1.Save();
+            newSpecialty2.Save();
+            List<Specialty> testList = new List<Specialty>{newSpecialty1, newSpecialty2};
+
+            //act
+            List<Specialty> result = Specialty.GetAllSpecialties();
+
+            //assert
+            CollectionAssert.AreEqual(result, testList);
+        }
+
+        [TestMethod]
         public void Equals_ReturnsTrueIfSame_Client()
         {
             //arrange, act

@@ -46,6 +46,23 @@ namespace HairSalon.Tests
         }
 
         [TestMethod]
+        public void GetAllStylists_GetThemAll_ListStylist()
+        {
+            //arrange
+            Stylist newStylist1 = new Stylist("Carol", "Smith");
+            Stylist newStylist2 = new Stylist("John", "Smith");
+            newStylist1.Save();
+            newStylist2.Save();
+            List<Stylist> testList = new List<Stylist>{newStylist1, newStylist2};
+
+            //act
+            List<Stylist> result = Stylist.GetAllStylists();
+
+            //assert
+            CollectionAssert.AreEqual(result, testList);
+        }
+
+        [TestMethod]
         public void Getters_GettersReturnAppropriately_StringsAndInts()
         {
             //arrange
@@ -209,8 +226,29 @@ namespace HairSalon.Tests
             List<Specialty> testList = new List<Specialty>{newSpecialty};
             List<Specialty> result = newStylist.GetSpecialties();
             Console.WriteLine(result.Count);
+
             //assert
             CollectionAssert.AreEqual(testList, result);
+        }
+
+        [TestMethod]
+        public void GetSpecialties_GetSpecialtiesForStylist_listSpecialties()
+        {
+            //arrange
+            Stylist newStylist = new Stylist("Carol", "Smith");
+            newStylist.Save();
+            Specialty newSpecialty1 = new Specialty("Cutting Hair");
+            newSpecialty1.Save();
+            Specialty newSpecialty2 = new Specialty("Cutting Hair");
+            newSpecialty2.Save();
+            newStylist.AddSpecialty(newSpecialty1);
+            List<Specialty> testList = new List<Specialty>{newSpecialty1};
+
+            //act
+            List<Specialty> result = newStylist.GetSpecialties();
+
+            //assert
+            CollectionAssert.AreEqual(result, testList);
         }
     }
 }
