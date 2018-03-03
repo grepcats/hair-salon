@@ -17,7 +17,7 @@ namespace HairSalon.Controllers
         [HttpGet("/specialties/new")]
         public ActionResult CreateSpecialtyForm()
         {
-            return View("CreateSpecialtyForm");
+            return View();
         }
 
         [HttpPost("/specialties/new")]
