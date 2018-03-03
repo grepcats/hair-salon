@@ -36,13 +36,6 @@ form.options {
     margin-left: 20px;
 }
 
-select.form-control {
-    width: 200px;
-    margin-left:20px;
-    display:inline;
-}
-
-
 
 a {
     color: #654F6F;
@@ -71,6 +64,12 @@ a:hover {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover {
     background-color: #654F6F;
+}
+
+select.form-control {
+    width: 200px;
+    margin-left:20px;
+    display:inline;
 }
 
 

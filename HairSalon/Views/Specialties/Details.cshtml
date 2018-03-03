@@ -12,20 +12,20 @@
 
 <h2>Details for specialty</h2>
 <h3>Name of specialty: @Model["specialty"].GetName()</h3>
+
 <div class="options well">
     <h3 class="options">Options</h3>
-    <form method="post" action='/specialties/@Model["specialty"].GetId()/add-stylist'>
-        <div class="form-group">
-            <label for="add-stylist"><span class="glyphicon glyphicon-plus"></span> Add Stylist</label>
-            <select name="add-stylist" class="form-control">
-                @foreach(var stylist in @Model["allStylists"])
-                {
-                    <option value="@stylist.GetId()">@stylist.GetFirstName() @stylist.GetLastName()</option>
-                }
-            </select>
-        </div>
-        <button type="submit" class="btn btn-default">Add Stylist</button>
-    </form>
+    <p class="options"><span class="glyphicon glyphicon-plus"></span> Add Stylist
+        <form method="post" action='/specialties/@Model["specialty"].GetId()/add-stylist'>
+                <select name="add-stylist" class="form-control">
+                    @foreach(var stylist in @Model["allStylists"])
+                    {
+                        <option value="@stylist.GetId()">@stylist.GetFirstName() @stylist.GetLastName()</option>
+                    }
+                </select>
+            <button type="submit" class="btn btn-default">Add Stylist</button>
+        </form>
+    </p>
 </div>
 
 @if (@Model["stylists"].Count > 0)

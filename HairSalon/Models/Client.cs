@@ -136,6 +136,11 @@ namespace HairSalon.Models
             }
         }
 
+        public override int GetHashCode()
+        {
+            return this.GetFirstName().GetHashCode();
+        }
+
         public static Client Find(int id)
         {
             List<Client> allClients = Client.GetAllClients();

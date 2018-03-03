@@ -109,6 +109,11 @@ namespace HairSalon.Models
         }
     }
 
+    public override int GetHashCode()
+    {
+        return this.GetFirstName().GetHashCode();
+    }
+
     public List<Client> GetClients()
     {
         List<Client> allMyClients = new List<Client> {};
