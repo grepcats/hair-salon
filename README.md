@@ -100,30 +100,77 @@
 $ C:\MAMP\bin\mysql\bin\mysql -uroot -proot -P8889
 ```
 From your command line once you've logged into MySQL, create the database and tables via the following instructions.
+
+For Main Database
 ```
 CREATE DATABASE kayla_ondracek;
 USE kayla_ondracek;
 CREATE TABLE `clients` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) DEFAULT NULL,
   `stylist_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `specialties` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `specialties_stylists` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `specialty_id` int(11) NOT NULL,
+  `stylist_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 CREATE TABLE `stylists` (
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
-  `id` int(11) NOT NULL,
-  `specialty` varchar(255) DEFAULT NULL
+  `id` int(11) NOT NULL AUTO_INCREMENT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`);
+ALTER TABLE `specialties`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `specialties_stylists`
+  ADD PRIMARY KEY (`id`);
 ALTER TABLE `stylists`
-ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);    
+
+```
+
+For Test Database
+```
+CREATE DATABASE kayla_ondracek_test;
+USE kayla_ondracek_test;
+
+CREATE TABLE `clients` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `stylist_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `specialties` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `specialties_stylists` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `specialty_id` int(11) NOT NULL,
+  `stylist_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `stylists` (
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+    ADD PRIMARY KEY (`id`);
+ALTER TABLE `specialties`
+    ADD PRIMARY KEY (`id`);
+ALTER TABLE `specialties_stylists`
+    ADD PRIMARY KEY (`id`);
 ALTER TABLE `stylists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
+    ADD PRIMARY KEY (`id`);
 ```
 
 * Clone the app
