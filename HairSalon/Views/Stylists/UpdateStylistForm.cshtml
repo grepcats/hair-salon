@@ -15,11 +15,11 @@
 <form action="/stylists/@Model.GetId()/update" method="post">
     <div class="form-group">
         <label for="s-first-name">First Name</label>
-        <input type="text" name="s-first-name" class="form-control" value="@Model.GetFirstName()">
+        <input type="text" name="s-first-name" class="form-control" value="@Model.GetFirstName()" required>
     </div>
     <div class="form-group">
         <label for="s-last-name">Last Name</label>
-        <input type="text" name="s-last-name" class="form-control" value="@Model.GetLastName()">
+        <input type="text" name="s-last-name" class="form-control" value="@Model.GetLastName()" required>
     </div>
     <button class="btn btn-default" type="submit">Update Stylist</button>
 </form>

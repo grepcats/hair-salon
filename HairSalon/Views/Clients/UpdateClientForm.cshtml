@@ -15,15 +15,15 @@
 <form method="post" action='/clients/@Model["client"].GetId()/update'>
     <div class="form-group">
         <label for="c-first-name">First Name</label>
-        <input type="text" name="c-first-name" class="form-control" value='@Model["client"].GetFirstName()'>
+        <input type="text" name="c-first-name" class="form-control" value='@Model["client"].GetFirstName()' required>
     </div>
     <div class="form-group">
         <label for="c-last-name">Last Name</label>
-        <input type="text" name="c-last-name" class="form-control" value='@Model["client"].GetLastName()'>
+        <input type="text" name="c-last-name" class="form-control" value='@Model["client"].GetLastName()' required>
     </div>
     <div class="form-group">
         <label for="phone-number">Phone Number</label>
-        <input type="text" name="phone-number" class="form-control" value='@Model["client"].GetPhoneNumber()'>
+        <input type="text" name="phone-number" class="form-control" value='@Model["client"].GetPhoneNumber()' required>
     </div>
     <div class="form-group">
         <label for="stylist">Stylist</label>
